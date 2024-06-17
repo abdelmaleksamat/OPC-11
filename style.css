@@ -1,0 +1,1418 @@
+/*
+Theme Name: nathalie-mota
+Author: abdelmalek
+Description: Théme du site pour Nathalie Mota
+Version: 1.0
+*/
+/* Base CSS */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&family=Space+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap");
+
+body {
+    font-family: "Space Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.navBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1148px;
+    margin: auto;
+    width: 100%;
+}
+
+ul,
+li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+li a {
+    text-decoration: none;
+    color: inherit;
+    text-transform: uppercase;
+}
+
+.navBar ul {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+/* image header*/
+
+img.header-img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+/* Footer */
+footer ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1148px;
+    margin: auto;
+    gap: 86px;
+}
+
+.photographe-event h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: "Space Mono", sans-serif;
+    font-size: 96px;
+    font-weight: 700;
+    font-style: italic;
+    text-transform: uppercase;
+    white-space: nowrap;
+    -webkit-text-stroke: 2px #fff;
+    color: transparent;
+}
+
+/* The Modal (background) */
+.modal-ext {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 597px;
+    margin: auto;
+    border: 5px solid black;
+}
+
+/*  fomulaire CONTACT */
+.wpcf7-form {
+    max-width: 597px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.wpcf7-form input,
+.wpcf7-form textarea {
+    border-radius: 8px;
+    border: 1px solid #b8bbc2;
+    background: #fff;
+    width: 263px;
+    margin-top: 4px;
+}
+
+.wpcf7-form input {
+    height: 40px;
+}
+
+.wpcf7-form input[type="submit"] {
+    border-radius: 2px;
+    background: #d8d8d8;
+    box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.02);
+    border: none;
+    width: 263px;
+    height: 50px;
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+ul#menu-menu-du-header {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    flex-direction: row;
+    align-items: center;
+}
+
+.contact_btn_menu {
+    border: none;
+    background-color: transparent;
+    font-family: inherit;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.logo {
+    margin-left: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+    padding: 0 15px;
+    text-transform: uppercase;
+}
+div#site-navigation {
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 30px 0;
+}
+
+/* Styles pour le conteneur des articles (colonnes) */
+.filter {
+    display: flex;
+    justify-content: center; /* Centrer horizontalement */
+    gap: 20px; /* Espacement entre les colonnes */
+    margin-top: 50px; /* Marge supérieure pour espacer du haut de la page */
+    flex-wrap: wrap; /* Permettre le retour à la ligne des articles */
+}
+
+/* Styles pour l'image à l'intérieur de chaque carte */
+.post_img {
+    /*width: 70%; /* Remplir complètement la largeur de la carte */
+    /* height: 495px; /* Hauteur fixe pour l'image */
+    object-fit: cover; /* Redimensionner l'image pour remplir la zone définie */
+    width: 100%;
+    height: 495px;
+}
+
+/* Styles pour le titre à l'intérieur de chaque carte */
+.title {
+    margin-top: 15px; /* Marge supérieure pour espacer du haut de l'image */
+    font-family: "Space Mono", monospace;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center; /* Centrer le texte horizontalement */
+    line-height: 1.2; /* Hauteur de ligne pour un espacement optimal */
+}
+footer {
+    border-top: 1px solid #ccc; /* Couleur et style de la bordure */
+    padding-top: 10px; /* Espacement au-dessus de la ligne */
+}
+
+.filtres {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 25px;
+}
+
+/* Styles pour chaque groupe de filtre */
+.filtre-categorie,
+.filtre-format,
+.filtre-trier {
+    margin-left: 144px;
+    width: 260px;
+    position: relative; /* Position relative pour positionner le pseudo-élément */
+}
+
+/* Styles pour les labels */
+.filtres label {
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+/* Styles pour les sélecteurs */
+.filtres select {
+    border: 1.3px solid #b8bbc2;
+    width: 260px;
+    height: 42px;
+    padding: 11px 18px 11px 18px;
+    border-radius: 8px 8px 8px 8px;
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: 0.03em;
+    text-align: left;
+    color: #313144;
+}
+
+/* Pseudo-élément pour ajouter le texte à l'intérieur du sélecteur */
+.filtres select::before {
+    content: attr(
+        data-label
+    ); /* Utilisation de l'attribut data-label pour le texte */
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #777;
+}
+
+/* Styles spécifiques pour chaque filtre */
+.filtre-categorie select::before {
+    content: "Catégorie";
+}
+
+.filtre-format select::before {
+    content: "Format";
+}
+
+.filtre-trier select::before {
+    content: "Trier Par";
+}
+
+/* Réglages spécifiques pour le filtre "Trier Par" */
+.filtre-trier {
+    margin-left: auto;
+    width: 260px;
+    height: 43px;
+    margin-right: 8%; /* Déplace le filtre "Trier Par" complètement à droite */
+}
+
+/* Ajustement de la distance entre "Catégorie" et "Format" */
+.filtre-format {
+    margin-left: 3px; /* Crée une distance de 3px entre "Catégorie" et "Format" */
+}
+
+/* prev-next-images   */
+
+.prev-next-images {
+    position: relative;
+    width: 81px;
+    height: 71px;
+}
+.prev-next-images img {
+    position: absolute;
+    width: 81px;
+    height: 71px;
+    opacity: 0;
+    transition: opacity 250ms ease-in-out;
+}
+
+/* Media query pour les écrans plus petits (styles mobiles) */
+@media screen and (max-width: 950px) {
+    .filtres {
+        display: flex;
+        flex-direction: column; /* Afficher les filtres en colonne */
+        align-items: center; /* Étirer les filtres pour occuper la largeur */
+    }
+
+    /* Ajustements spécifiques pour chaque filtre en mode mobile */
+    .filtre-categorie,
+    .filtre-format,
+    .filtre-trier {
+        margin: 0; /* Réinitialiser les marges entre les filtres */
+    }
+
+    /* Styles pour chaque filtre en mode mobile */
+    .filtres select {
+        width: 100%; /* Les sélecteurs prennent toute la largeur disponible */
+        margin-bottom: 10px; /* Ajouter un espace entre les filtres en mode mobile */
+    }
+}
+.filtres label {
+    display: none;
+    font-weight: bold;
+    margin-right: 8px;
+}
+/* Styles du conteneur du bouton centré */
+.bouton-container {
+    position: relative;
+    padding-top: 65px;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center; /* Centrer le contenu horizontalement */
+}
+
+/* Styles du bouton "Afficher plus" */
+.bouton-afficher-plus {
+    width: 272px;
+    height: 50px;
+    padding: 8px 15px;
+    gap: 10px;
+    border-radius: 2px 0 0 0;
+    background-color: #d8d8d8;
+    opacity: 1;
+    border: none;
+    color: #000000;
+    font-family: "Space Mono", monospace;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 5px; /* Ajuster la ligne pour centrer verticalement */
+    text-align: center; /* Centrer le texte horizontalement */
+    cursor: pointer;
+    outline: none;
+}
+
+/* Media query pour les écrans plus petits (styles mobiles) */
+@media screen and (max-width: 768px) {
+    /*.card {
+        width: 46%; /* Changer la largeur des cartes pour occuper toute la largeur
+    }*/
+
+    .post_img {
+        max-height: 200px; /* Réduire la hauteur maximale de l'image sur les petits écrans */
+    }
+}
+/* Media query pour les écrans plus petits (styles mobiles) */
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 24px; /* Réduire la taille de police pour les écrans plus petits */
+    }
+}
+
+/* Style pour le conteneur principal */
+.header-content {
+    width: 100%;
+    height: 80vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Style pour le conteneur du titre */
+.photographe-event {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%; /* Remplir toute la largeur du conteneur parent */
+}
+
+/* Style pour le titre "PHOTOGRAPHE EVENT" */
+/* Style pour le titre "PHOTOGRAPHE EVENT" */
+.photographe-event h1 {
+    font-family: "Space Mono", sans-serif;
+    padding: 0;
+    text-align: center;
+    font-size: 96px;
+    font-weight: 700;
+    font-style: italic;
+    text-transform: uppercase;
+    white-space: nowrap;
+    -webkit-text-stroke: 2px #fff;
+    color: transparent;
+}
+
+/* Media query pour les écrans plus petits (styles mobiles) */
+@media screen and (max-width: 1440px) {
+    .header-content {
+        height: auto; /* Ajuster la hauteur automatiquement pour maintenir le ratio */
+    }
+
+    .photographe-event h1 {
+        font-size: 24px; /* Réduire la taille de police pour les écrans plus petits */
+    }
+}
+/* footer */
+footer ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1148px;
+    margin: auto;
+    gap: 86px;
+    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne si nécessaire */
+}
+
+footer li {
+    flex: 0 0 auto; /* Réinitialise la flexibilité des éléments li */
+    text-align: center; /* Centre le texte à l'intérieur des li */
+}
+
+@media (max-width: 768px) {
+    footer ul {
+        justify-content: flex-start; /* Aligne les éléments sur le début */
+        gap: 20px; /* Réduit l'espace entre les éléments sur les petits écrans */
+    }
+
+    /* Forcer les li à s'afficher en colonnes */
+    footer li {
+        width: 100%; /* Chaque li occupe la pleine largeur */
+    }
+}
+
+.nav-links-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.nav-links-container ul li {
+    margin-right: 20px;
+}
+
+.nav-links-container ul li:last-child {
+    margin-right: 0;
+}
+
+.nav-links-container ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+/* Styles pour le menu burger */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.burger-icon,
+.burger-icon::before,
+.burger-icon::after {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 2px;
+    background-color: #333;
+    border-radius: 2px;
+    transition: transform 0.3s ease;
+}
+
+.burger-icon::before {
+    transform: translateY(-8px);
+}
+
+.burger-icon::after {
+    transform: translateY(8px);
+}
+
+/* Styles pour le menu burger actif */
+.menu-toggle.active .burger-icon {
+    transform: rotate(45deg);
+}
+
+.menu-toggle.active .burger-icon::before {
+    transform: translateY(0) rotate(90deg);
+}
+
+.menu-toggle.active .burger-icon::after {
+    transform: translateY(0) rotate(-90deg);
+}
+
+/* Media query pour afficher le menu burger sur les petits écrans */
+@media (max-width: 768px) {
+    .nav-links-container ul {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+        margin-left: auto;
+    }
+
+    /* Afficher le menu lorsque le bouton burger est activé */
+    .menu-toggle.active + #primary-menu {
+        display: block;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #fff;
+        z-index: 1000;
+        width: 80%;
+        max-width: 300px;
+        padding: 20px;
+        transform: translateX(0);
+        transition: transform 0.3s ease;
+    }
+}
+
+.nav-links-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.nav-links-container ul li {
+    margin-right: 20px;
+}
+
+.nav-links-container ul li:last-child {
+    margin-right: 0;
+}
+
+.nav-links-container ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+/* Styles pour le menu burger */
+.menu-toggle {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .nav-links-container {
+        display: none; /* Cacher la navigation principale sur les écrans réduits */
+    }
+
+    .menu-toggle {
+        display: block; /* Afficher le bouton du menu burger */
+        margin-right: 20px;
+    }
+}
+@media screen and (min-width: 768px) {
+    span {
+        /*display: none;*/
+    }
+}
+span.burger {
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 5%;
+    padding: 5px;
+    width: 20px;
+    height: 28px;
+}
+
+/*   formulaire filter  */
+.form-filter {
+    display: flex;
+    justify-content: space-between;
+    max-width: 65%;
+    margin: 40px auto 39px auto;
+}
+
+.first-col {
+    display: flex;
+    gap: 36px;
+    margin-bottom: 10px;
+}
+
+.select {
+    cursor: pointer;
+    position: relative;
+    font-size: 16px;
+    color: #313144;
+    width: 260px;
+    height: 42px;
+    padding: 0px 18px;
+    border: 1.3px solid #b8bbc2;
+    border-radius: 8px;
+    display: flex !important;
+    align-items: center;
+}
+
+.select::after {
+    content: url(./assets/chevron-up-s.png);
+    position: absolute;
+    top: 13px;
+    right: 18px;
+}
+
+.select-options li:first-child {
+    margin-top: 2.1em;
+}
+
+.select-options li {
+    padding: 11px 24px;
+}
+
+.select-options li:hover {
+    background-color: #e00000;
+    color: white;
+}
+
+.select span {
+    display: block;
+    padding-left: 8px;
+    padding-right: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-transform: uppercase;
+    font-family: "poppinsregular";
+    color: #444;
+    line-height: 28px;
+    font-family: Poppins;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+}
+
+.select-options {
+    display: none;
+    position: absolute;
+    top: 41px;
+    right: 0;
+    left: 0;
+    z-index: 999;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-color: white;
+    border-radius: 0 0 8px 8px;
+}
+
+/* Styles responsive pour les écrans de 760px ou moins */
+@media (max-width: 820px) {
+    .form-filter {
+        display: flex;
+        flex-direction: column;
+        width: 80%; /* Ajuste la largeur selon les besoins */
+        margin: 40px auto; /* Centre l'élément horizontalement et verticalement */
+    }
+}
+
+/* Burger menu styles */
+.burger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 20px;
+}
+
+.burger div {
+    width: 100%;
+    height: 3px;
+    background: black;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .nav-links-container {
+        display: none;
+    }
+    .burger {
+        display: flex;
+    }
+    .menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        position: fixed;
+        top: 90px; /* Ajuster pour correspondre à la hauteur de la navbar */
+        left: 0;
+        width: 100%;
+        height: calc(
+            100% - 60px
+        ); /* Ajuster pour correspondre à la hauteur de la navbar */
+        background: red;
+        padding: 20px 0;
+        z-index: 1; /* Juste en dessous de la navbar */
+    }
+    .menu a,
+    .menu .contact_btn_menu {
+        color: white;
+        text-decoration: none;
+        margin: 10px 0;
+        font-size: 20px;
+    }
+    .menu.active {
+        display: flex;
+    }
+    .burger.toggle .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .burger.toggle .line2 {
+        opacity: 0;
+    }
+    .burger.toggle .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .menu {
+        display: none; /* Masque la div menu */
+    }
+}
+
+/* Menu overlay styles */
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    z-index: 2;
+}
+
+.overlay-header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white; /* Fond blanc pour l'image du logo */
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.overlay-logo {
+    height: 13px;
+}
+
+.overlay .closebtn {
+    font-size: 40px;
+    color: black; /* Changer la couleur de la croix pour être visible sur fond blanc */
+}
+
+.overlay-content {
+    width: 100%;
+    background-color: red; /* Fond rouge pour les éléments du menu */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%; /* Prendre tout l'espace disponible */
+    padding-top: 60px; /* Espace au-dessus pour éviter de recouvrir le header */
+}
+
+.overlay-content a,
+.overlay-content button {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+    margin: 20px 0; /* Espacement entre les éléments */
+}
+
+.overlay-content a:hover,
+.overlay-content button:hover {
+    color: #f1f1f1;
+}
+
+.burger {
+    font-size: 24px;
+    cursor: pointer;
+    display: none; /* Masqué par défaut */
+}
+
+/* Media queries for responsive design */
+@media only screen and (max-width: 767px) {
+    .burger {
+        display: block; /* Affiché sur les petits écrans */
+    }
+}
+.more_btn {
+    display: flex;
+    justify-content: center;
+}
+#load_more {
+    font-family: "space_monoregular";
+    font-size: 12px;
+    font-weight: 400;
+    margin: 20px 0 40px;
+    padding: 15px 90px;
+    border: 2px solid transparent;
+    background-color: #d8d8d8;
+    cursor: pointer;
+    transition: border-color 0.3s ease; /* Ajoute une transition douce pour l'effet de survol */
+}
+
+#load_more:hover {
+    border-color: black; /* Change la couleur de la bordure en noir lors du survol */
+    border-width: 1px; /* Définit la largeur de la bordure à 1px */
+}
+
+@media only screen and (max-width: 600px) {
+    html {
+        margin-top: 0px !important;
+    }
+}
+@media only screen and (max-width: 768px) {
+    html {
+        margin-top: 0px !important;
+    }
+}
+@media only screen and (max-width: 950px) {
+    html {
+        margin-top: 0px !important;
+    }
+}
+@media only screen and (max-width: 1905px) {
+    html {
+        margin-top: 0px !important;
+    }
+}
+
+/* Conteneur de la grille */
+#posts {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto; /* Centre le conteneur */
+}
+
+/* Style de base pour les cartes */
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 576px;
+    margin: auto; /* Centre les cartes dans leur colonne */
+    overflow: hidden; /* Masque les éléments dépassant de la carte */
+}
+
+.card .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Assombrit un peu plus l'image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover .overlay {
+    opacity: 1;
+}
+
+.card .overlay .eye-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px; /* Ajuste la taille de l'icône */
+    height: auto; /* Ajuste la taille de l'icône */
+    background-size: contain;
+    transform: translate(-50%, -50%);
+}
+
+.card .overlay .fullscreen-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px; /* Ajuste la taille de l'icône */
+    height: 30px; /* Ajuste la taille de l'icône */
+}
+
+/* Image dans la carte avec dimensions fixes */
+.card img.post_img {
+    width: 576px;
+    height: 495px;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover img.post_img {
+    opacity: 0.5; /* Assombrit l'image au survol */
+}
+
+/* Titre dans la carte */
+.card .title {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+/* Span dans la carte */
+.card span {
+    padding: 0 10px 10px 10px;
+    font-size: 1em;
+    color: #555;
+}
+
+/*   SLINGLE PAGE CSS RULERS  */
+.main-content-single {
+    display: flex;
+    justify-content: space-between;
+    max-width: 60%;
+    margin: auto;
+    gap: 21px;
+    flex-direction: row-reverse;
+    margin-top: 40px;
+}
+
+.contact-carrousel {
+    border-bottom: 1px solid black;
+    padding-bottom: 31px;
+    display: flex;
+    justify-content: space-between;
+    max-width: 1195px;
+    margin: 0% 20%;
+    gap: 21px;
+}
+
+.suggested-photo-container {
+    max-width: 1195px;
+    margin: auto;
+}
+
+#open-modal {
+    display: flex;
+    width: 272px;
+    height: 50px;
+    padding: 8px 15px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 2px;
+    background: #d8d8d8;
+    box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.02);
+    border: none;
+    cursor: pointer;
+    margin-left: 50px;
+}
+
+.main-content-single img {
+    max-width: 100%;
+    object-fit: contain;
+    height: 100%;
+}
+
+.main-content-single .single-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 1px solid black;
+    width: 50%;
+}
+
+.single-details h2 {
+    text-transform: uppercase;
+    line-height: 70px;
+    font-family: "Space Mono";
+    font-size: 66px;
+    font-style: italic;
+    font-weight: 400;
+    width: 67%;
+}
+
+.single-details li {
+    text-transform: uppercase;
+    font-family: "Space Mono";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 1.4px;
+    margin: 14px 0px 14px 0px;
+}
+
+/* Styles responsives pour 1200px et moins */
+@media (max-width: 1200px) {
+    #posts {
+        grid-template-columns: 1fr;
+        justify-items: center; /* Centre les articles dans la grille */
+    }
+    .card {
+        max-width: 576px; /* Limite la largeur maximale de la carte */
+        width: 100%; /* Permet à la carte de s'étendre sur toute la largeur du conteneur */
+    }
+}
+
+/* Styles responsives pour 820px et moins */
+@media (max-width: 820px) {
+    #posts {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+    .card {
+        width: 90%; /* Réduit la largeur de la carte pour les petits écrans */
+        max-width: 90%;
+    }
+    .card img.post_img {
+        width: 100%; /* Rend l'image responsive */
+        height: auto; /* Maintient le ratio d'aspect de l'image */
+    }
+
+    .form-filter {
+        display: flex;
+        flex-direction: column;
+        width: 80%; /* Ajuste la largeur selon les besoins */
+        margin: 40px auto; /* Centre l'élément horizontalement et verticalement */
+    }
+}
+
+/* Styles responsives pour 488px et moins */
+@media (max-width: 488px) {
+    .card {
+        width: 80%; /* Réduit encore la largeur de la carte pour les très petits écrans */
+        max-width: 80%;
+    }
+    .card img.post_img {
+        width: 100%; /* Rend l'image responsive */
+        height: auto; /* Maintient le ratio d'aspect de l'image */
+    }
+}
+
+/* Styles par défaut (desktop) */
+.form-filter {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.form-filter .first-col {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.form-filter .select {
+    display: inline-block;
+}
+
+/* Styles responsive (mobile) */
+@media (max-width: 768px) {
+    .form-filter {
+        flex-direction: column;
+        gap: 10px;
+        margin-left: 37px;
+    }
+
+    .form-filter .first-col {
+        flex-direction: column;
+    }
+
+    .form-filter .select {
+        width: 100%;
+    }
+}
+
+.icon-fullscreen {
+    position: absolute;
+    top: 10px; /* Ajustez cette valeur selon vos besoins */
+    right: 10px; /* Ajustez cette valeur selon vos besoins */
+    width: 50px; /* Ajustez la taille de l'image selon vos besoins */
+    height: 50px; /* Ajustez la taille de l'image selon vos besoins */
+}
+
+.text_overlay {
+    position: absolute;
+    bottom: 10px; /* Ajustez cette valeur selon vos besoins */
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* Aligne les éléments en bas */
+    padding: 0 10px; /* Ajoutez du padding si nécessaire */
+    box-sizing: border-box;
+}
+.text_overlay .title {
+    color: white;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    padding: 0px 15px;
+    text-align: left;
+}
+
+.text_overlay span {
+    margin: 0; /* Supprime les marges par défaut du span */
+    color: white; /* Assurez-vous que le texte est visible sur l'image */
+}
+
+.text_overlay a {
+    color: white; /* Assurez-vous que le texte du lien est visible */
+    text-decoration: none; /* Supprime la décoration du lien */
+}
+
+#custom-header {
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10; /* S'assure que l'en-tête est au-dessus des autres éléments */
+}
+
+.contact-carrousel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px; /* Ajustez le padding selon vos besoins */
+}
+
+.contact-btn {
+    display: flex;
+}
+
+.contact-btn h4 {
+    margin-bottom: 10px;
+    color: #333;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+#boutonContact {
+    padding: 10px 20px;
+    background-color: #ccc; /* Ajustez la couleur de fond selon vos besoins */
+    border: none;
+    cursor: pointer;
+}
+
+#boutonContact:hover {
+    background-color: #bbb; /* Ajustez la couleur au survol selon vos besoins */
+}
+
+.interaction-photo__navigation {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.carrousel-photo {
+    width: 100px; /* Ajustez la taille de l'image selon vos besoins */
+    height: auto;
+    margin-right: 20px;
+}
+
+.navigation-arrows {
+    display: flex;
+    margin-right: 20px;
+}
+
+.navigation-arrows .arrow-left,
+.navigation-arrows .arrow-right {
+    width: 24px; /* Ajustez la taille des flèches selon vos besoins */
+    height: auto;
+    cursor: pointer;
+    margin: 5px 0;
+}
+
+.navigation-arrows .arrow-left:hover,
+.navigation-arrows .arrow-right:hover {
+    filter: brightness(0.8); /* Ajustez l'effet au survol selon vos besoins */
+}
+
+.img-single {
+    width: 563px;
+    height: 844px;
+}
+
+h3 {
+    margin-left: 4%;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-family: Space Mono;
+    font-weight: 400;
+}
+
+.all-photos-btn {
+    display: flex;
+    justify-content: center;
+}
+
+#button-photos {
+    display: flex;
+    width: 272px;
+    height: 50px;
+    padding: 8px 15px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 2px;
+    background: #d8d8d8;
+    box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.02);
+    border: none;
+    cursor: pointer;
+    margin-left: 50px;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 700px) {
+    .main-content-single {
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+    }
+}
+@media screen and (max-width: 700px) {
+    .main-content-single .single-details {
+        width: 100%;
+        margin-right: 0;
+    }
+    #boutonContact {
+        margin-right: 25%;
+        padding: 10px 30px;
+    }
+    .contact-btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+@media screen and (max-width: 600px) {
+    .contact-carrousel {
+        flex-direction: column;
+    }
+    h3 {
+        margin-left: 4%;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.photo-suggestions {
+    display: flex;
+    gap: 4px; /* Space between the items */
+    margin: 1%;
+}
+
+/* Styles spécifiques aux petits écrans (400 pixels de large) */
+@media screen and (max-width: 400px) {
+    .photo-suggestions {
+        display: flex;
+        gap: 4px;
+        margin: 1%;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .all-photos-btn {
+        /* display: flex; */
+        justify-content: center;
+    }
+    a {
+        padding: 0 10px; /* Adjust padding for smaller screens */
+    }
+
+    .interaction-photo__navigation {
+        display: none; /* Hide on small screens */
+    }
+    #button-photos {
+        margin-left: 0%;
+    }
+    #open-modal {
+        margin-left: 0%;
+    }
+}
+
+#carousel-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+#carousel-content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1em;
+}
+
+#carousel-content img {
+    width: 100%;
+    object-fit: contain;
+    height: auto;
+    max-width: 564px;
+}
+
+#carousel-content .overlay {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px 0;
+}
+
+#carousel-close,
+#carousel-prev,
+#carousel-next {
+    position: absolute;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    height: 50px;
+}
+
+.lightbox__info {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    width: 777px;
+    margin-top: 19px;
+}
+
+.lightbox__close {
+    border: none;
+    background: url(./assets/x-circle.svg);
+    background-position: center;
+    text-indent: -3000px;
+    width: 22.02px;
+    height: 22.02px;
+    cursor: pointer;
+    z-index: 21;
+    position: absolute;
+    top: 16%;
+    right: 10px;
+}
+
+p.lightbox__ref {
+    color: white;
+}
+p.lightbox__cat {
+    color: white;
+}
+
+#carousel-close {
+    top: 0px;
+    right: 0;
+}
+
+#carousel-prev {
+    left: -60%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#carousel-next {
+    right: -60%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.reference {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #fff;
+}
