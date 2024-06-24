@@ -31,6 +31,8 @@
                 </ul>
             </div>
         </nav>
+
+        
         <!-- Menu Burger (affiché uniquement sur les petits écrans) -->
     <div id="myNav" class="overlay">
         <div class="overlay-header">

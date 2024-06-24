@@ -1,8 +1,11 @@
 <!-- Template pour l' affichage des post et ses détails -->
 
 <?php get_header(); ?>
-
+<!-- Boucle WordPress -->
 <?php if(have_posts()) : while(have_posts()) : the_post(); ?>
+
+<!-- have_posts() : Vérifie s'il y a des posts à afficher.
+the_post() : Initialise le post actuel dans la boucle -->
 
 
 <section class="main-content-single">
@@ -20,9 +23,9 @@
                     <li>ANNÉE : <?php the_date('Y'); ?></li>
                 </ul>
             </div>
-        </section>
+</section>
 
-        <section class="contact-carrousel">
+<section class="contact-carrousel">
             <div class="contact-btn">
                 <h4>Cette photo vous intéresse ?</h4>
                 <button id="open-modal">Contact</button>
@@ -55,9 +58,10 @@
                     <?php endif; ?>
                 </div>
             </div>
-        </section>
+</section>
 
-        <section class="suggested-photo-container">
+        
+<section class="suggested-photo-container">
             <h3>Vous aimerez AUSSI</h3>
             <div class="photo-suggestions">
                 <!-- Récupération des photos de même catégorie avec WP_query -->
@@ -69,10 +73,11 @@
                 </a>
             </div>
             </div>
-        </section>
+</section>
     </div>
 <?php 
 endwhile; 
 endif;
 ?>
+
 <?php get_footer(); ?>

@@ -1,7 +1,7 @@
 <?php
+// Enregistrement des Styles et Scripts
 function theme_enqueue_styles()
 {
-    // wp_enqueue_style('parent-style' , get_template_directory_uri() . '/style.css');
     wp_enqueue_style('child-style' , get_stylesheet_directory_uri() . '/style.css');
     wp_enqueue_script( 'scripJs', get_stylesheet_directory_uri() . '/js/script.js', array() );
     wp_localize_script('scripJs', 'ajax_admin', array('ajax_url' => admin_url('admin-ajax.php')));
@@ -11,6 +11,9 @@ function theme_enqueue_styles()
     }
     
 }
+
+// Fonction de Chargement Plus (Load More)
+
 function charger_plus() { 
     $args = array(
 		'orderby' => 'date',
@@ -21,17 +24,14 @@ function charger_plus() {
 	// 2. On exécute la WP Query
 
     $query = new WP_Query($args);
-
     if($query->have_posts()): ?>
         <?php while ($query->have_posts()): $query->the_post(); ?>
-
         <?php   
         
         // image de chaque post
         $image_url = get_the_post_thumbnail_url();
         // Récupère le texte alternatif de l'image.
         $image_alt = get_post_meta(get_the_ID(), '_wp_attachment_image_alt', true); 
-
         $post_id = get_post_meta(get_the_ID(), 'reference', true);
 
         ?>
@@ -54,12 +54,13 @@ function charger_plus() {
             </article>
         <?php endwhile; 
         wp_reset_query();
-        
         wp_die();
         endif; 
 
 
- }             
+ }     
+
+// Fonction de Filtrage
 
 function handle_filter() {
 
@@ -90,7 +91,6 @@ function handle_filter() {
             'terms' =>  $format 
         ];
     }
-
     if(!empty($date) && $date == "recent" ){
         $args['order'] = 'ASC';
     }
@@ -101,26 +101,14 @@ function handle_filter() {
 	// 2. On exécute la WP Query
 
     $query = new WP_Query($args);
-
-    
-
     if($query->have_posts()):
         while ($query->have_posts()): $query->the_post(); 
-        
-
         // image de chaue post
         $image_url = get_the_post_thumbnail_url();
         // Récupère le texte alternatif de l'image.
         $image_alt = get_post_meta(get_the_ID(), '_wp_attachment_image_alt', true); 
-
         $post_id = get_post_meta(get_the_ID(), 'reference', true);
-        
-        
-        
-        
         ?>
-
-        
 
         <!---- metre dans une template     ---->
         <article class="card">
@@ -146,9 +134,8 @@ function handle_filter() {
 }
 
 
-// charger les phtos asociée
+// Charger les Photos Associées
 function photos_associe(){
-
     $categorie = $_POST['categorie']; 
 
     $args = array(
@@ -164,24 +151,14 @@ function photos_associe(){
         ];
 
     $query = new WP_Query($args);    
-
     if($query->have_posts()):
         while ($query->have_posts()): $query->the_post(); 
-        
-
-        // image de chaue post
+        // image de chaque post
         $image_url = get_the_post_thumbnail_url();
         // Récupère le texte alternatif de l'image.
         $image_alt = get_post_meta(get_the_ID(), '_wp_attachment_image_alt', true); 
-
         $post_id = get_post_meta(get_the_ID(), 'reference', true);
-        
-        
-        
-        
         ?>
-
-
     <!---- metre dans une template     ---->
     <article class="card">
                 <img class="post_img" src="<?php echo $image_url ?>" alt="<?php echo $image_alt?>" data-imgId="<?php echo $post_id ?>">
@@ -202,7 +179,6 @@ function photos_associe(){
 
     <?php    endwhile;
     endif;
-
     wp_reset_postdata();
     wp_die();
 
@@ -223,50 +199,13 @@ add_action('wp_ajax_charger_les_photos_associe', 'photos_associe');
 add_action('wp_ajax_nopriv_charger_les_photos_associe', 'photos_associe');
 
 
-// Ajout de Fancybox pour afficher la lightbox
-function enqueue_fancybox() {
-    // Inclure le CSS de Fancybox
-    wp_enqueue_style('fancybox-css', 'https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css');
-
-    // Inclure le JavaScript de Fancybox
-    wp_enqueue_script('fancybox-js', 'https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js', array('jquery'), null, true);
-
-    // Initialiser Fancybox
-    wp_add_inline_script('fancybox-js', '
-    function initFancybox() {
-        jQuery(".fancybox").fancybox({
-            buttons : [
-                "close"
-            ],
-            showNavArrows : false,
-            arrows : false,
-            infobar: false,
-            touch: false,
-            loop: true,
-            clickContent: false,
-            baseClass: "fancybox-custom-layout",
-            afterShow: function(instance, slide) {
-                console.log("Fancybox is working!");
-            }
-        });
-    }
-
-    jQuery(document).ready(function() {
-        initFancybox();
-    });
-
-    jQuery(document).ajaxComplete(function() {
-        initFancybox();
-    });
-');
-}
-add_action('wp_enqueue_scripts', 'enqueue_fancybox');
-
 
 // Ajouter une nouvelle taille d'image personnalisée
 add_action('after_setup_theme', function() {
     add_image_size('custom-size', 563, 844, true); // true pour recadrer l'image aux dimensions exactes
 });
+
+// Inclusion de Scripts et Styles du Carrousel
 
     function enqueue_carousel_assets() {
         wp_enqueue_style('carousel-css', get_stylesheet_directory_uri() . '/style.css');
@@ -275,10 +214,7 @@ add_action('after_setup_theme', function() {
     add_action('wp_enqueue_scripts', 'enqueue_carousel_assets');
     wp_enqueue_script( 'carrousel.js', get_stylesheet_directory_uri() . '/js/carrousel.js', array() );
    
-
-
-
-
+// Inclusion de Scripts Personnalisés
 
     function my_theme_enqueue_scripts() {
         wp_enqueue_script('custom-scripts', get_stylesheet_directory_uri() . '/scripts.js', array(), null, true);

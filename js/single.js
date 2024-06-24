@@ -1,15 +1,16 @@
+//Le script est exécuté lorsque le contenu de la page est complètement chargé. (Événement DOMContentLoaded)
 window.addEventListener("DOMContentLoaded", () => {
 
+    //Récupération de la Catégorie de l'Article
     const postCategory =  document.querySelector('.post_category').childNodes[1].innerText
     console.log(postCategory, ajax_admin.ajax_url);
 
+    //Préparation des Données pour AJAX
     const form_data = new FormData()
-
-    // accion a executer dans le function.php (charger pluse)
     form_data.append("action", "charger_les_photos_associe")
     form_data.append("categorie", postCategory)
 
-
+    //Envoi de la Requête AJAX
     fetch(ajax_admin.ajax_url, {
         method: "POST",
         body: form_data,
@@ -21,21 +22,22 @@ window.addEventListener("DOMContentLoaded", () => {
         })
     })
 
+    //Gestion des Flèches Gauche et Droite
     const left_arrow = document.getElementById('arrow-left')
     const right_arrow = document.getElementById('arrow-right')
 
-    //  affiche son image
+    //Interaction avec la Flèche Gauche
     if(left_arrow){
         left_arrow.addEventListener('mouseenter', ()=>{
             document.querySelectorAll('.wp-post-image')[1].style.opacity = 1
         })
-        //  cache son image
+        
         left_arrow.addEventListener('mouseleave', ()=>{
             document.querySelectorAll('.wp-post-image')[1].style.opacity = 0
         })
     }
     
-    // function guard
+    //Interaction avec la Flèche Droite
     if(right_arrow){        
         right_arrow.addEventListener('mouseenter', ()=>{
             document.querySelectorAll('.wp-post-image')[2].style.opacity = 1

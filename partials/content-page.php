@@ -1,4 +1,6 @@
-<?php 	// 1. On définit les arguments pour définir ce que l'on souhaite récupérer
+<?php 
+     //Définition des Arguments pour WP_Query	
+    // 1. On définit les arguments pour définir ce que l'on souhaite récupérer
 	$args = array(
 		'orderby' => 'date',
 		'post_type' => 'photo',
@@ -9,7 +11,7 @@
 
     $query = new WP_Query($args);
 
-
+    //Récupération des Taxonomies
     $taxonomies = get_terms( array(
         'taxonomy'   => 'categorie',
         'hide_empty' => false,
@@ -17,11 +19,9 @@
 
     ?>
 
-<!----   FORMULAIRE FILTRES      ---->
+<!----   Formulaire de Filtres     ---->
 <form class="form-filter">
-
     <div class="first-col">
-
         <div class="select">
             <span>
                 <?php echo $taxonomies[0]->taxonomy; ?>
@@ -32,14 +32,12 @@
                 <?php endforeach ?>
             </ul>
         </div>
-
         <?php   
         $taxonomies = get_terms(array(
             'taxonomy'   => 'format',
             'hide_empty' => false,
         ));
         ?>
-
         <div class="select">
             <span>
                 <?php echo $taxonomies[0]->taxonomy; ?>
@@ -64,7 +62,7 @@
 
 </form>
 
-<!----   PHOTOS NATHALIE   ---->
+<!----   Affichage des Photos   ---->
 
 <div id="posts"class="filter">
     <!-----  contenu dynamique grâce à WP_QUERY à l'intérieur de card-template   --------->
@@ -75,7 +73,7 @@
 
         <?php   
         
-        // image de chaue post
+        // image de chaque post
         $image_url = get_the_post_thumbnail_url();
         // Récupère le texte alternatif de l'image.
         $image_alt = get_post_meta(get_the_ID(), '_wp_attachment_image_alt', true); 
@@ -107,6 +105,7 @@
 
 </div>
 
+<!-- Bouton pour Charger Plus -->
 <div class="more_btn">
     <button id="load_more">Charger plus</button>
 </div>
