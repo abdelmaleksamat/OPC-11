@@ -2,20 +2,32 @@
 
 window.addEventListener("DOMContentLoaded", () => {
     const modal_btn_close = document.querySelector(".modal-close");
+    const contact_btn_menu_mobile = document.querySelector(".contact_btn_menu_mobile")
     const modal_form = document.getElementById("modal-form");
     const contact_btn_menu = document.querySelector(".contact_btn_menu");
 
+    // fermer la modale
     modal_btn_close.addEventListener("click", () => {
-        console.log("click sur btn close !!!");
-        modal_form.style.display = "none";
+        modal_form.style.display = "none"
     });
-
+    
+    
     contact_btn_menu.addEventListener("click", () => {
         modal_form.style.display = "block";
+        modal_form.classList.add('fadeInClass')
     });
+
+
+
+    // menu mobile et animation mobile
+    contact_btn_menu_mobile.addEventListener('click', ()=>{
+        modal_form.style.display = "block"
+        modal_form.classList.add('slideInClass')
+    })
 
     window.addEventListener("click", (e) => {
         if (e.target.classList.contains("modal-ext")) {
+            modal_form.classList.remove('fadeInClass')
             modal_form.style.display = "none";
         }
     });
@@ -107,7 +119,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     li_array.forEach((li) => {
         li.addEventListener("click", (e) => {
+            e.stopPropagation()
             recouper_donne(e.target.getAttribute("data-value"), e.target.getAttribute("data-filter"));
+            const parentNode = e.target.parentNode 
+            parentNode.style.display = "none"
+
         });
     });
 });
@@ -118,7 +134,7 @@ function openNav() {
 }
 
 function closeNav() {
-    document.getElementById("myNav").style.width = "0%";
+    document.getElementById("myNav").style.width = "0";
 }
 
 //Modale pour Référence de Post
