@@ -17,10 +17,11 @@ the_post() : Initialise le post actuel dans la boucle -->
                 <h2><?php echo get_the_title() ?></h2>
                 <ul>
                     <li>Référence : <span class="post_reference"><?php echo get_field('Reference') ?></span></li>
-                    <li class="post_category">Catégorie : <?php echo the_terms(get_the_ID(), 'categorie', false); ?></li>
+                    <li class="post_category">Catégorie :<span><?php echo the_terms(get_the_ID(), 'categorie', false); ?></span></li>
                     <li>FORMAT : <?php echo the_terms(get_the_ID(), 'format', false); ?></li>
                     <li>Type : <?php echo get_field('type') ?></li>
                     <li>ANNÉE : <?php the_date('Y'); ?></li>
+                    <li class="hidden-id" aria-hidden="true"><?php echo get_the_ID() ?></li>
                 </ul>
             </div>
 </section>
@@ -65,13 +66,6 @@ the_post() : Initialise le post actuel dans la boucle -->
             <h3>Vous aimerez AUSSI</h3>
             <div class="photo-suggestions">
                 <!-- Récupération des photos de même catégorie avec WP_query -->
-            </div>
-            <div class="all-photos-btn">
-                <!-- Bouton pour afficher toutes les photos -->
-                 <a href="/">
-                    <button id="button-photos">Toutes les photos</button>
-                </a>
-            </div>
             </div>
 </section>
     </div>
