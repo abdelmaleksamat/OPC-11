@@ -82,7 +82,7 @@ footer ul {
 .modal-ext {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 100; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -92,6 +92,37 @@ footer ul {
     background-color: rgba(0, 0, 0, 0.4);
 }
 
+/*  animation pur la modale  */
+
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.fadeInClass{
+    animation: fadeIn 550ms ease-in-out forwards;
+}
+
+@keyframes slideIn{
+    0%{
+        transform: translateX(50vw);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+
+.slideInClass{
+    animation: slideIn 550ms ease-in-out forwards;
+}
+
+
+
+
 /* Modal Content/Box */
 .modal-content {
     background-color: #fefefe;
@@ -100,6 +131,7 @@ footer ul {
     max-width: 597px;
     margin: auto;
     border: 5px solid black;
+    overflow: hidden;
 }
 
 /*  fomulaire CONTACT */
@@ -143,7 +175,8 @@ ul#menu-menu-du-header {
     align-items: center;
 }
 
-.contact_btn_menu {
+.contact_btn_menu, 
+.contact_btn_menu_mobile {
     border: none;
     background-color: transparent;
     font-family: inherit;
@@ -202,6 +235,11 @@ div#site-navigation {
 footer {
     border-top: 1px solid #ccc; /* Couleur et style de la bordure */
     padding-top: 10px; /* Espacement au-dessus de la ligne */
+
+}
+
+.hidden-id{
+    display: none;
 }
 
 .filtres {
@@ -822,7 +860,7 @@ span.burger {
     justify-content: center;
 }
 #load_more {
-    font-family: "space_monoregular";
+    font-family: "Space Mono";
     font-size: 12px;
     font-weight: 400;
     margin: 20px 0 40px;
@@ -968,6 +1006,7 @@ span.burger {
 .suggested-photo-container {
     max-width: 1195px;
     margin: auto;
+    padding-bottom: 100px;
 }
 
 #open-modal {
@@ -1369,7 +1408,6 @@ h3 {
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
-    width: 777px;
     margin-top: 19px;
 }
 
@@ -1396,7 +1434,7 @@ p.lightbox__cat {
 
 #carousel-close {
     top: 0px;
-    right: 0;
+    right: -42px;
 }
 
 #carousel-prev {
@@ -1415,4 +1453,126 @@ p.lightbox__cat {
     margin-top: 10px;
     font-size: 1rem;
     color: #fff;
+}
+
+h3 {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+
+
+
+
+
+
+
+/* Style de base pour les cartes */
+.card-suggestions {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 576px;
+    margin: auto; /* Centre les cartes dans leur colonne */
+    overflow: hidden; /* Masque les éléments dépassant de la carte */
+}
+
+.card-suggestions .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Assombrit un peu plus l'image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card-suggestions:hover .overlay {
+    opacity: 1;
+}
+
+.card-suggestions .overlay .eye-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px; /* Ajuste la taille de l'icône */
+    height: auto; /* Ajuste la taille de l'icône */
+    background-size: contain;
+    transform: translate(-50%, -50%);
+}
+
+.card-suggestions .overlay .fullscreen-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px; /* Ajuste la taille de l'icône */
+    height: 30px; /* Ajuste la taille de l'icône */
+}
+
+/* Image dans la carte avec dimensions fixes */
+.card-suggestions img.post_img {
+    width: 576px;
+    height: 495px;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.card-suggestions :hover img.post_img {
+    opacity: 0.5; /* Assombrit l'image au survol */
+}
+
+/* Titre dans la carte */
+.card-suggestions .title {
+    font-size: 1.5em;
+    margin: 10px 0;
+    color: white;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    padding: 0px 15px;
+    text-align: left;
+}
+
+/* Span dans la carte */
+.card-suggestions span {
+    padding: 0 10px 10px 10px;
+    font-size: 1em;
+    color: #555;
+}
+/* Styles responsives pour 488px et moins */
+@media (max-width: 488px) {
+    .card-suggestions {
+        width: 80%; /* Réduit encore la largeur de la carte pour les très petits écrans */
+        max-width: 80%;
+    }
+    .card-suggestions img.post_img {
+        width: 100%; /* Rend l'image responsive */
+        height: auto; /* Maintient le ratio d'aspect de l'image */
+    }
+}
+@media (max-width: 820px) {
+    #posts {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+    .card-suggestions {
+        width: 90%; /* Réduit la largeur de la carte pour les petits écrans */
+        max-width: 90%;
+    }
+    .card-suggestions img.post_img {
+        width: 100%; /* Rend l'image responsive */
+        height: auto; /* Maintient le ratio d'aspect de l'image */
+    }
+    .card-suggestions {
+        max-width: 576px; /* Limite la largeur maximale de la carte */
+        width: 100%; /* Permet à la carte de s'étendre sur toute la largeur du conteneur */
+    }
 }
