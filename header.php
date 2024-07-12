@@ -24,8 +24,8 @@
             <div class="menu-menu-du-header-container">
                 <ul id="menu-menu-du-header" class="header-menu">
                     <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-7 current_page_item menu-item-17"><a href="/" aria-current="page">Accueil</a></li>
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-16"><a href="/a-propos/">À propos</a></li>
-                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-29">
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-16"><a href="/a-propos">À propos</a></li>
+                    <li  onclick="closeNav()" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-29">
                         <button class="contact_btn_menu">Contact</button>
                     </li>
                 </ul>
@@ -37,15 +37,15 @@
     <div id="myNav" class="overlay">
         <div class="overlay-header">
             <a href="/">
-                <img src="http://nathalie-mota.local/wp-content/themes/nathalie-mota/assets/Nathalie-Mota.png" alt="Logo" class="overlay-logo">
+                <img src="<?php echo get_stylesheet_directory_uri() . '/assets/Nathalie-Mota.png' ?>" alt="Logo" class="overlay-logo">
             </a>
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         </div>
         <div class="overlay-content">
-            <a href="#">Accueil</a>
-            <a href="#">À propos</a>
-            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-29">
-                <button class="contact_btn_menu">Contact</button>
+            <a onclick="closeNav()" href="/">Accueil</a>
+            <a onclick="closeNav()" href="/a-propos">À propos</a>
+            <li  onclick="closeNav()" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-29">
+                <button onclick="closeNav()" class="contact_btn_menu_mobile">Contact</button>
             </li>
         </div>
     </div>
@@ -54,9 +54,9 @@
         </div>
         <div class="menu">
         <ul id="menu-menu-du-header" class="header-menu">
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-7 current_page_item menu-item-17"><a href="/" aria-current="page">Accueil</a></li>
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-16"><a href="/a-propos/">À propos</a></li>
-                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-29">
+                    <li onclick="closeNav()" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-7 current_page_item menu-item-17"><a href="/" aria-current="page">Accueil</a></li>
+                    <li onclick="closeNav()" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-16"><a href="/a-propos">À propos</a></li>
+                    <li onclick="closeNav()" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-29">
                         <button class="contact_btn_menu">Contact</button>
                     </li>
                 </ul>
