@@ -6,6 +6,7 @@
 		'post_type' => 'photo',
 		// 'meta_value' => 'mariage',
 		'posts_per_page' => 8, // 8 articles,
+        'paged' => 1
 	);
 	// 2. On exécute la WP Query
 
@@ -54,8 +55,8 @@
         <div class="select">
             <span>Trier par Date</span>
             <ul class="select-options">
-                <li class="select-li" data-filter='date'  data-value="recent">Plus récents</li>
-                <li class="select-li" data-filter='date' data-value="ancient">Plus ancienes</li>
+                <li class="select-li" data-filter='date'  data-value="recent">Plus Ancienes</li>
+                <li class="select-li" data-filter='date' data-value="ancient">Plus Récents</li>
             </ul>
         </div>
     </div>
