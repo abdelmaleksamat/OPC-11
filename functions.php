@@ -135,54 +135,55 @@ function handle_filter() {
 
 
 // Charger les Photos Associées
+// Charger les Photos Associées
 function photos_associe(){
     $categorie = $_POST['categorie']; 
+    $reference = $_POST['reference']; 
 
     $args = array(
-            'orderby' => 'date',
-            'post_type' => 'photo',
-            'posts_per_page' => 2,
-            'tax_query'=> []
-        );
-        $args['tax_query'][] = [
-            'taxonomy'=> 'categorie', 
-            'field'=> 'slug',
-            'terms' => $categorie 
-        ];
+        'orderby' => 'date',
+        'post_type' => 'photo',
+        'posts_per_page' => 2,
+        'post__not_in' => array($reference), // exclude la photo  --> ID - reference
+        'tax_query'=> [
+            [
+                'taxonomy'=> 'categorie', 
+                'field'=> 'slug',
+                'terms' => $categorie 
+            ]
+        ]
+    );
 
     $query = new WP_Query($args);    
     if($query->have_posts()):
         while ($query->have_posts()): $query->the_post(); 
-        // image de chaque post
-        $image_url = get_the_post_thumbnail_url();
-        // Récupère le texte alternatif de l'image.
-        $image_alt = get_post_meta(get_the_ID(), '_wp_attachment_image_alt', true); 
-        $post_id = get_post_meta(get_the_ID(), 'reference', true);
+            $image_url = get_the_post_thumbnail_url();
+            $image_alt = get_post_meta(get_the_ID(), '_wp_attachment_image_alt', true); 
+            // $post_id = get_post_meta(get_the_ID(), 'reference', true);
+            $post_id = get_field('Reference');
         ?>
-    <!---- metre dans une template     ---->
-    <article class="card">
-                <img class="post_img" src="<?php echo $image_url ?>" alt="<?php echo $image_alt?>" data-imgId="<?php echo $post_id ?>">
-                <div class="overlay" >
-                    <a href="<?php echo get_permalink(); ?>">
-                        <img class="eye-icon" alt="button-eye" src="<?php echo get_stylesheet_directory_uri() . '/assets/Icon_eye.png'  ?>" >
-                    </a>
-                    <a href="<?php echo get_permalink(); ?>">
-                        <img class="icon-fullscreen" alt="fullscreen" src="<?php echo get_stylesheet_directory_uri() . '/assets/Icon_fullscreen.png'  ?>" >
-                    </a>
-                
-                    <div class="text_overlay" >
-                    <h3 class="title"> <?php  echo the_title() ?></h3>
+        <article class="card-suggestions">
+            <img class="post_img" src="<?php echo $image_url ?>" alt="<?php echo $image_alt?>" data-imgId="<?php echo $post_id ?>">
+            <div class="overlay">
+                <a href="<?php echo get_permalink(); ?>">
+                    <img class="eye-icon" alt="button-eye" src="<?php echo get_stylesheet_directory_uri() . '/assets/Icon_eye.png'  ?>">
+                </a>
+                <a href="javascript:void(0)" class="icon-fullscreen">
+                    <img alt="fullscreen" src="<?php echo get_stylesheet_directory_uri() . '/assets/Icon_fullscreen.png'  ?>">
+                </a>
+                <div class="text_overlay">
+                    <h3 class="title"><?php the_title(); ?></h3>
                     <span><?php echo the_terms(get_the_ID(), 'categorie', false); ?></span>
-                    </div>
                 </div>
-    </article>
-
-    <?php    endwhile;
+            </div>
+        </article>
+        <?php 
+        endwhile;
     endif;
     wp_reset_postdata();
     wp_die();
-
 }
+
 
 add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
 
@@ -220,4 +221,3 @@ add_action('after_setup_theme', function() {
         wp_enqueue_script('custom-scripts', get_stylesheet_directory_uri() . '/scripts.js', array(), null, true);
     }
     add_action('wp_enqueue_scripts', 'my_theme_enqueue_scripts');
-    
