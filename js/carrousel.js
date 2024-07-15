@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
             hideCarousel();
         }
     });
-   0// Extraction des Données des Cartes
+   // Extraction des Données des Cartes
     card_list.forEach((card) => {
         const cardData = {
             postImg: card.querySelector(".post_img").src,

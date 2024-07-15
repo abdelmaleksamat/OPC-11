@@ -16,6 +16,7 @@ window.addEventListener("DOMContentLoaded", () => {
     const closeButton = document.getElementById("carousel-close"); // Sélectionne le bouton pour fermer le carrousel.
 
     let currentIndex = 0;
+    let posts = [];
 
 
     //Préparation des Données pour AJAX
@@ -61,11 +62,11 @@ window.addEventListener("DOMContentLoaded", () => {
             posts.push(cardData);      
         });
         // rajoute mes donnes du main post
-        const cardData = {
-            postImg: document.querySelector(".img-single").src,
-            postRef: document.querySelector(".post_reference").innerText,
-            postCat: postCategory,
-        };
+        // const cardData = {
+        //     postImg: document.querySelector(".img-single").src,
+        //     postRef: document.querySelector(".post_reference").innerText,
+        //     postCat: postCategory,
+        // };
         // ajouter a la liste de posts
         posts.push(cardData);  
 

@@ -4,7 +4,6 @@
 	$args = array(
 		'orderby' => 'date',
 		'post_type' => 'photo',
-		// 'meta_value' => 'mariage',
 		'posts_per_page' => 8, // 8 articles,
         'paged' => 1
 	);
@@ -23,45 +22,60 @@
 <!----   Formulaire de Filtres     ---->
 <form class="form-filter">
     <div class="first-col">
+        <!-- Première section de sélection -->
         <div class="select">
             <span>
+                <!-- Affiche le nom de la première taxonomie -->
                 <?php echo $taxonomies[0]->taxonomy; ?>
             </span>
             <ul class="select-options">    
+                <!-- Boucle pour afficher chaque taxonomie dans une liste -->
                 <?php foreach ($taxonomies as $taxonomie): ?>
-                    <li class="select-li" data-filter='categorie' data-value="<?php echo $taxonomie->slug; ?>"><?php echo $taxonomie->name; ?></li>
+                    <li class="select-li" data-filter='categorie' data-value="<?php echo $taxonomie->slug; ?>">
+                        <?php echo $taxonomie->name; ?>
+                    </li>
                 <?php endforeach ?>
             </ul>
         </div>
+
         <?php   
+        // Récupère les termes de la taxonomie 'format'
         $taxonomies = get_terms(array(
             'taxonomy'   => 'format',
             'hide_empty' => false,
         ));
         ?>
+
+        <!-- Deuxième section de sélection -->
         <div class="select">
             <span>
+                <!-- Affiche le nom de la première taxonomie 'format' -->
                 <?php echo $taxonomies[0]->taxonomy; ?>
             </span>
             <ul class="select-options">    
+                <!-- Boucle pour afficher chaque taxonomie 'format' dans une liste -->
                 <?php foreach ($taxonomies as $taxonomie): ?>
-                    <li class="select-li" data-filter='format' data-value="<?php echo $taxonomie->slug; ?>"><?php echo $taxonomie->name; ?></li>
+                    <li class="select-li" data-filter='format' data-value="<?php echo $taxonomie->slug; ?>">
+                        <?php echo $taxonomie->name; ?>
+                    </li>
                 <?php endforeach ?>
             </ul>
         </div>
     </div>
 
+    <!-- Section de sélection pour trier par date -->
     <div>
         <div class="select">
             <span>Trier par Date</span>
             <ul class="select-options">
-                <li class="select-li" data-filter='date'  data-value="recent">Plus Ancienes</li>
-                <li class="select-li" data-filter='date' data-value="ancient">Plus Récents</li>
+                <!-- Options de tri par date -->
+                <li class="select-li" data-filter='date' data-value="recent">Plus Anciennes</li>
+                <li class="select-li" data-filter='date' data-value="ancient">Plus Récentes</li>
             </ul>
         </div>
     </div>
-
 </form>
+
 
 <!----   Affichage des Photos   ---->
 
@@ -86,7 +100,7 @@
             <article class="card">
                 <img class="post_img" src="<?php echo $image_url ?>" alt="<?php echo $image_alt ?>" data-imgId="<?php echo get_field('Reference') ?>">
                 <div class="overlay">
-                    <a href="<?php echo get_permalink(); ?>">
+                    <a href="JavaScript:void(0)">
                         <img class="eye-icon" alt="button-eye" src="<?php echo get_stylesheet_directory_uri() . '/assets/Icon_eye.png' ?>">
                     </a>
                     <a href="<?php echo get_permalink(); ?>">

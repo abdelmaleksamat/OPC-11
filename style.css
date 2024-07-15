@@ -122,12 +122,15 @@ footer ul {
 
 
 
-
 /* Modal Content/Box */
 .modal-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-color: #fefefe;
     margin: 15% auto; /* 15% from the top and centered */
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 89%; /* Could be more or less, depending on screen size */
     max-width: 597px;
     margin: auto;
     border: 5px solid black;
@@ -142,6 +145,11 @@ footer ul {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+
+.wpcf7-form p {
+    margin-top: 4px;
+    margin-bottom: 4px;
 }
 .wpcf7-form input,
 .wpcf7-form textarea {
@@ -1035,9 +1043,10 @@ span.burger {
 .main-content-single .single-details {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     border-bottom: 1px solid black;
     width: 50%;
+    padding-bottom: 20px;
 }
 
 .single-details h2 {
@@ -1575,4 +1584,10 @@ h3 {
         max-width: 576px; /* Limite la largeur maximale de la carte */
         width: 100%; /* Permet à la carte de s'étendre sur toute la largeur du conteneur */
     }
+}
+
+
+.single-details ul {
+    margin-top: 0;
+    
 }
